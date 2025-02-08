@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Album</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="icon" href="assets/images/icon.png" type="image/x-icon">
+</head>
+<body data-bs-theme="light">
+    <button id="theme-toggle" class="btn btn-dark m-3">Dark/Light</button>
+
+    <div class="container text-center">
+        <h1 class="mb-4">Vocaloid Album</h1>
+        <div class="row" id="image-gallery">
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        function createImageCard(imageSrc, description, timestamp) {
+            const colDiv = document.createElement('div');
+            colDiv.classList.add('col-md-6', 'col-lg-4', 'mb-4');
+
+            const cardDiv = document.createElement('div');
+            cardDiv.classList.add('card', 'border-gray', 'h-100');
+
+            const imgElement = document.createElement('img');
+            imgElement.src = imageSrc;
+            imgElement.alt = description;
+            imgElement.classList.add('card-body', 'img-fluid'); // o card-img-top
+
+            const descriptionDiv = document.createElement('div');
+            descriptionDiv.classList.add('card-body', 'd-flex', 'flex-column', 'justify-content-between');
+            descriptionDiv.style.backgroundColor = 'white';
+
+            const descriptionParagraph = document.createElement('p');
+            descriptionParagraph.textContent = description;
+            descriptionParagraph.classList.add('card-text');
+
+            const timestampDiv = document.createElement('div');
+            timestampDiv.classList.add('timestamp');
+            timestampDiv.textContent = timestamp;
+            timestampDiv.style.fontSize = '15px';
+            timestampDiv.style.color = 'gray';
+
+            const buttonContainer = document.createElement('div');
+            buttonContainer.classList.add('d-flex', 'justify-content-between', 'mt-3');
+            
+            const buttonVer = document.createElement('button');
+            buttonVer.classList.add('btn', 'btn-primary', 'btn-sm');
+            buttonVer.textContent = 'Ver';
+            
+            const buttonEditar = document.createElement('button');
+            buttonEditar.classList.add('btn', 'btn-secondary', 'btn-sm');
+            buttonEditar.textContent = 'Editar';
+            
+            buttonContainer.appendChild(buttonVer);
+            buttonContainer.appendChild(buttonEditar);
+
+            descriptionDiv.appendChild(descriptionParagraph);
+            descriptionDiv.appendChild(timestampDiv);
+            descriptionDiv.appendChild(buttonContainer);
+           
+            cardDiv.appendChild(imgElement);
+            cardDiv.appendChild(descriptionDiv);
+
+            colDiv.appendChild(cardDiv);
+
+            return colDiv;
+        }
+
+        const gallery = document.getElementById('image-gallery');
+        gallery.appendChild(createImageCard('assets/images/imagen3.jpg', 'Godish', '3:45 mins'));
+        gallery.appendChild(createImageCard('assets/images/imagen10.jpg', 'Villain', '4:00 mins'));
+        gallery.appendChild(createImageCard('assets/images/imagen6.jpg', 'Non-breath Obligue', '2:25 mins'));
+        gallery.appendChild(createImageCard('assets/images/imagen7.jpg', 'Deep Sea Lily', '2:50 mins'));
+        gallery.appendChild(createImageCard('assets/images/imagen5.jpg', 'Shoujo Rei', '5:01 mins'));
+        gallery.appendChild(createImageCard('assets/images/imagen8.jpg', 'Lost Ones Wepping', '4:30 mins'));
+    </script>
+</body>
+</html>
