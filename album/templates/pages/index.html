@@ -1,0 +1,72 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}Inicio | Proyecto Album{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h2 class="mb-4">Bienvenido a Proyecto Album</h2>
+    <p>Explora las aplicaciones:</p>
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-5 col-sm-12 mb-4">
+            <a href="{% url 'fotos' %}" class="card-link">
+                <div class="card option-card">
+                    <img src="https://i.pinimg.com/736x/2e/af/ad/2eafadce77954043fc7dbaa6af8ad253.jpg" class="card-img-top" alt="Fotos">
+                    <div class="card-body">
+                        <h5 class="card-title"> Galería de Vocaloid</h5>
+                        <p class="card-text">Explora las mejores canciones Vocaloid!</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-5 col-sm-12 mb-4">
+            <a href="{% url 'lista_noticias' %}" class="card-link">
+                <div class="card option-card">
+                    <img src="https://i.pinimg.com/736x/1e/5e/33/1e5e332cefea222445171c297d0ef5de.jpg" class="card-img-top" alt="Noticias">
+                    <div class="card-body">
+                        <h5 class="card-title">¡Hogwarts News!</h5>
+                        <p class="card-text">Todas las noticias del mundo mágico</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Estilos Personalizados -->
+<style>
+    /* Tarjetas de opciones */
+    .option-card {
+        transition: transform 0.3s ease-in-out;
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .option-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-img-top {
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .card-link {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    .card-title {
+        font-weight: 600;
+    }
+
+    .card-text {
+        font-size: 0.95rem;
+        color: #555;
+    }
+</style>
+{% endblock %}
